@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from rest_framework import generics
 from rest_framework.views import APIView
-
+from django.apps import apps
 from .serializers import UserSerializer, UserSerializerDetail
 from .forms import UserForm
 from rest_framework.decorators import api_view
@@ -22,7 +22,9 @@ class UserDetails(generics.RetrieveAPIView):
 def index(request):
     user = User.objects.filter(id=request.user.id)
     if len(user) != 0:
-        return render(request, 'index.html')
+        coreModel = apps.get_model('backend', 'Core')
+        core = coreModel.objects.get(user=request.user)
+        return render(request, 'index.html', {'core': core})
     else:
         return redirect('login')
 
@@ -63,6 +65,9 @@ class registration(APIView):
                 user.save()
                 user = authenticate(request, username=username, password=password)
                 login(request, user)
+                coreModel = apps.get_model('backend', 'Core')
+                core = coreModel(user=user)
+                core.save()
                 return redirect('index')
             else:
                 return render(request, 'registration.html', {'invalid': True, 'form': form})

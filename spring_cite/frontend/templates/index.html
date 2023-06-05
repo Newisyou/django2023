@@ -1,0 +1,17 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <title>Клик-кликер</title>
+  </head>
+  <body>
+     <main class="container">
+         <div id="coins">{{core.coins}}}</div>
+        <button onclick="call_click()">Нажми меня</button>
+
+    </main>
+    
+  </body>
+</html>
