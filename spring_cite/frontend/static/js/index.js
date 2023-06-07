@@ -11,3 +11,33 @@ function call_click(){
 
     }).catch(error=>console.log(error))
 }
+
+function get_boosts(){
+    fetch('/boosts/',{
+        method:'GET'
+    }).then(response=>{
+        if (response.ok){
+            return response.json()
+        }
+        return Promise.reject(response)
+    }).then(boosts=>{
+        const panel=document.getElementById('boosts-holder')
+        panel.innerHTML=''
+        boosts.forEach(boosts=>{
+            add_boosts(panel, boosts)
+        })
+    }).catch(error=>console.log(error))
+}
+
+function add_boosts(parent, boost){
+    const button=document.createElement('button')
+    button.setAttribute('class','boost')
+    button.setAttribute('id',`boost_${boost.id}`)
+    button.setAttribute('onclick',`buy_boost(${boost.id})`)
+    button.innerHTML=`
+    <p> lvl: <span id="boost_level">{{boost.lvl}}</span></p>
+    <p> +: <span id="boost_power">{{boost.lvl}}</span></p>
+    <p><span id="boost_price">{{boost.lvl}}</span></p>
+    `
+    parent.appendChild(button)
+}
