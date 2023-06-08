@@ -1,3 +1,9 @@
+html, body{
+    height: 557px;
+    width: 1600px;
+    margin: 0;
+}
+
 header{
     background-color: darkcyan;
     color: white;
@@ -11,13 +17,124 @@ h3{
 }
 
 main{
-    margin-top: 50px;
-    margin-bottom: 50px;
+margin: 0;
+
 }
-app{
-    
+.app{
+    font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #163152;
+  background-color: #FDFDFF;
+}
+nav {
+    z-index: 2;
+    position: relative;
+    background-color: #163152;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    height: 100px;
+    box-sizing: border-box;
+}
+.head{
+        font-size: 30px;
+    text-align:center;
+    padding: 30px;
+}
+a:link {
+    color: #163152;
+  text-decoration: none;
+}
+a:visited {
+    color:#163152;
+  text-decoration: none;
+}
+a:hover {
+    color: #163152;
+  text-decoration: underline;
+}
+a:active {
+    color: #163152;
+  text-decoration: underline;
 }
 
+.cmain{
+    padding: 20px;
+    background-image: url('/frontend/static/images/koshka.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+    background-size: 800px 800px;
+    height: 557px;
+
+}
+p { margin:0 }
+.in{
+    width: 975px;
+    display: flex;
+
+}
+.in div{
+    flex: 50%;
+}
+
+.boo{
+    width: 150px;
+}
+.boo h4{
+    text-align: center;
+}
+.power{
+    padding: 0;
+    font-size: 25px;
+    text-align: center;
+}
+.bup{
+    top: 475px;
+    left: 756px;
+    width: 90px;
+    height: 37px;
+    background-color: black;
+    color: beige;
+    border:none;
+    font-size: 21px;
+    border-radius: 50%;
+    position: absolute;
+}
+.coins{
+    height: 70px;
+    padding-top: 20px;
+    padding-left: 180px;
+     font-weight: 700;
+  font-size: 50px;
+    text-align: center;
+    background-color: #2AA5A0;
+    background-image: linear-gradient(to bottom, #e218ff, #0033cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#boosts{
+    text-align: center;
+      overflow-y: scroll;
+      width: 300px;
+    height: 200px;
+}
+.boosts-holder{
+    min-height: 150px;
+}
+
+
+.boosts button{
+    margin: 3px;
+    text-align: center;
+    width: 100px;
+    height: 90px;
+    border:none;
+    background-color: darkorange;
+    font-size: 14px;
+    border-radius: 30%;
+}
 .logout{
     position: relative;
     text-align:center;
